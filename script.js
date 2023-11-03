@@ -15,19 +15,26 @@ const checkCity = () => {
       let temperature = Math.round(element.main.temp - 273.15);
       let weatherDescrip = element.weather[0].description
       let ObjectWeather = {city, temperature, weatherDescrip}
-      ArrayWeather.push(ObjectWeather);
-      localStorage.setItem("weather", JSON.stringify(ArrayWeather));
-      JSON.parse(localStorage.getItem("weather"));
-      display.innerHTML = ""
-      display.innerHTML += `
-      <p>${city}</p>
-      <p>${temperature}°C</p>
-      <p>${weatherDescrip}</p>
-      
-      `
+
+      if (!city){
+        showErr.innerHTML = `<p>Please enter a city name</p>`
+      }
+        else{
+
+          ArrayWeather.push(ObjectWeather);
+          localStorage.setItem("weather", JSON.stringify(ArrayWeather));
+          JSON.parse(localStorage.getItem("weather"));
+          display.innerHTML = ""
+          display.innerHTML += `
+          <h1>${city}</h1>
+          <h4>${temperature}°C</h4>
+          <h4>${weatherDescrip}</h4>
+          
+          `
+        }
 
     })
     .catch((error) => {
-      showErr.innerHTML = `<p>${error.message}</p>`
+      console.log(error.message)
     });
 }
