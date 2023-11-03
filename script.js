@@ -1,5 +1,6 @@
+
+
 const checkCity = () => {
-  let ArrayWeather = []
   let identity = cityName.value
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${identity}&appid=f16d4a044174bf7cce0f638f850f5428`
   cityName.value = ""
@@ -20,7 +21,7 @@ const checkCity = () => {
 
 
       if (!city){
-        showErr.innerHTML = `<p>Please enter a city name</p>`
+        display.innerHTML = `<h1>Please enter a city name</h1>`
       }
         else{
 
@@ -49,15 +50,18 @@ const checkCity = () => {
           <div style="color:white; display:flex; justify-content: space-between"><p>Country</p>  <p>${country}</p></div>
           <hr style="margin-top:50px;">
           <div style="color:white; display:flex; justify-content: space-between"><p>Temperature</p>  <p>${temperature}°C</p></div>
-          <div style="color:white; display:flex; justify-content: space-between"><p>Wind</p>  <p>${wind}m/s</p></div>
+          <div style="color:white; display:flex; justify-content: space-between"><p>Wind speed</p>  <p>${wind}m/s</p></div>
+      <img src="http://openweathermap.org/img/wn/${iconCode}.png" alt="${weatherDescription}" />
+
           
-          
+        
           `
         }
-
-    })
-    .catch((error) => {
-      console.log(error.message)
+        
+      })
+      .catch((error) => {
+        display2.innerHTML = ""
+      display.innerHTML = `<h1 style="color: white; font-size:45px;">city not found</h1>`
     });
 }
 
@@ -78,7 +82,7 @@ window.addEventListener('load', () => {
 
       <hr style="margin-top:50px;">
       <div style="color:white; display:flex; justify-content: space-between"><p>Temperature</p>  <p>${weatherData.temperature}°C</p></div>
-      <div style="color:white; display:flex; justify-content: space-between"><p>Wind</p>  <p>${weatherData.wind}m/s</p></div>
+      <div style="color:white; display:flex; justify-content: space-between"><p>Wind speed</p>  <p>${weatherData.wind}m/s</p></div>
     `;
   }
 });

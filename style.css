@@ -31,7 +31,15 @@ input::placeholder {
   color: rgba(255, 255, 255, 0.603);
   font-size: 18px;
 }
-
+a{
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+  position: relative;
+  top: 270px;
+  left: 180px;
+  font-family: 'Ketika Sans', sans-serif;
+}
 .cover{
   margin-top: 80px;
   display: flex;
