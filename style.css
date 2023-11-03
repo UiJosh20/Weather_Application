@@ -55,6 +55,12 @@ input {
   outline: none;
   border-bottom: 1px solid white;
 }
+/* .weather-icon {
+  width: 50px;
+  height: 50px;
+  display: block;
+  margin: 10px auto;
+} */
 
 h1{
   font-size: 150px;
@@ -64,12 +70,17 @@ h1{
 }
 
 h3{
-  font-size: 40px;
+  font-size: 30px;
   font-family: 'Laachir Deeper', sans-serif;
   line-height: 1;
-                                                
+  
 }
 
+p{
+  font-family: 'Ketika Sans', sans-serif;
+  margin-top: 30px;
+  
+}
 
 .div2 {
   color: white;
@@ -77,6 +88,7 @@ h3{
   padding: 50px !important;
   width: 30%;
   height: 595px;
+  filter: opacity(.8);
 }
 
 #display {
