@@ -3,12 +3,17 @@
 const checkCity = () => {
   let identity = cityName.value
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${identity}&appid=f16d4a044174bf7cce0f638f850f5428`
-  cityName.value = ""
-  fetch(apiUrl)
-  .then((response) => {
   
-    return response.json()
-  
+  if (identity == ""){
+    display.innerHTML = `<p style="color: red;">Please enter a city name</p>`
+    display2.innerHTML = ""
+  }
+    else{
+    cityName.value = ""
+    fetch(apiUrl)
+    .then((response) => {
+      return response.json()
+    
   })
   .then((element)=>{
     console.log(element);
@@ -20,10 +25,6 @@ const checkCity = () => {
       let iconCode = element.weather[0].icon;
 
 
-      if (!city){
-        display.innerHTML = `<h1>Please enter a city name</h1>`
-      }
-        else{
 
           const weatherData = {
             city,
@@ -56,13 +57,13 @@ const checkCity = () => {
           
         
           `
-        }
+        
         
       })
       .catch((error) => {
-        display2.innerHTML = ""
-      display.innerHTML = `<h1 style="color: white; font-size:45px;">city not found</h1>`
+        console.log(error);
     });
+  }
 }
 
 window.addEventListener('load', () => {
