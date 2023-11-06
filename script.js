@@ -61,7 +61,7 @@ const checkCity = () => {
         
       })
       .catch((error) => {
-        console.log(error);
+        display.innerHTML = `<p style="color:white;">${error.message}</p>`
     });
   }
 }
