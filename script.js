@@ -5,7 +5,7 @@ const checkCity = () => {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${identity}&appid=f16d4a044174bf7cce0f638f850f5428`
   
   if (identity == ""){
-    display.innerHTML = `<p style="color: red;">Please enter a city name</p>`
+    display.innerHTML = ""
     display2.innerHTML = ""
   }
     else{
@@ -61,7 +61,7 @@ const checkCity = () => {
         
       })
       .catch((error) => {
-        display.innerHTML = `<p style="color:white;">${error.message}</p>`
+        display.innerHTML = `<p style="">${error.message}</p>`
     });
   }
 }
